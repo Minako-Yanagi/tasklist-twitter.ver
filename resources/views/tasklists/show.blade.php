@@ -5,7 +5,7 @@
     <h1>id = {{ $tasklist->id }} のタスク詳細ページ</h1>
 
     <p>ステータス: {{ $tasklist->status }}</p>
-    <p>メッセージ{{ $tasklist->content }}</p>
+    <p>タスク: {{ $tasklist->content }}</p>
 
     {!! link_to_route('tasklists.edit', 'このタスクを編集', ['id' => $tasklist->id]) !!}
 
