@@ -8,11 +8,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Taklist</a>
+                <a class="navbar-brand" href="/">Task Manager</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>{!! link_to_route('tasklists.create', '新規タスクの投稿') !!}</li>
+                    <li>{!! link_to_route('signup.get', 'Signup') !!}</li>
+                    <li><a href="#">Login</a></li>
                 </ul>
             </div>
         </div>
