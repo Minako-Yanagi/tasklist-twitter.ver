@@ -20,9 +20,16 @@
             </ul>
             @if (Auth::user()->id == $user->id)
                   {!! Form::open(['route' => 'tasklists.store']) !!}
-                      <div class="form-group">
-                          {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
-                          {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+                <div class="form-group">
+                    {!! Form::label('status', 'ステータス:') !!}
+                    {!! Form::text('status', null, ['class' => 'form-control']) !!}
+                </div>
+                    
+                <div class="form-group">
+                    {!! Form::label('content', 'タスク:') !!}
+                    {!! Form::text('content', null, ['class' => 'form-control']) !!}
+    
+                          {!! Form::submit('ADD', ['class' => 'btn btn-primary btn-block']) !!}
                       </div>
                   {!! Form::close() !!}
             @endif

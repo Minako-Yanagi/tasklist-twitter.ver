@@ -55,13 +55,15 @@ class TasklistsController extends Controller
     {
         $this->validate($request, [
             'content' => 'required|max:191',
+            'status' => 'required|max:10'
         ]);
 
         $request->user()->tasklists()->create([
             'content' => $request->content,
+            'status' => $request->status
         ]);
 
-        return redirect()->back();
+        return redirect('/');
     }
 
     /**
@@ -88,6 +90,10 @@ class TasklistsController extends Controller
     public function edit($id)
     {
         $tasklist = Tasklist::find($id);
+        
+        if (\Auth::user()->id === $tasklist->user_id) {
+            $tasklist->edit();
+        }
 
         return view('tasklists.edit', [
             'tasklist' => $tasklist,
@@ -124,7 +130,7 @@ class TasklistsController extends Controller
      */
     public function destroy($id)
     {
-        $tasklist = \App\tasklist::find($id);
+        $tasklist = \App\Tasklist::find($id);
 
         if (\Auth::user()->id === $tasklist->user_id) {
             $tasklist->delete();
